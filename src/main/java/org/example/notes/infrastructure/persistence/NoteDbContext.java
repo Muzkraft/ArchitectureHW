@@ -8,8 +8,6 @@ import org.example.notes.infrastructure.persistence.configurations.NoteConfigura
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
-
 
 public class NoteDbContext extends DbContext implements NotesDatabaseContext {
 
