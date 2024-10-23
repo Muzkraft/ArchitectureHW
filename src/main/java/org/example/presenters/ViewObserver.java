@@ -3,5 +3,8 @@ package org.example.presenters;
 import java.util.Date;
 
 public interface ViewObserver {
-    public void onReservationTable(Date date, int tableNo, String name);
+    void onReservationTable(Date date, int tableNo, String name);
+    boolean reservationStatus(int tableNo);
+
+    void onChangeReservationTable(int oldReservation, Date reservationDate, int tableNo, String name);
 }

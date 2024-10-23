@@ -7,7 +7,7 @@ import java.util.Locale;
 public class Table {
     @Override
     public String toString() {
-        return String.format(Locale.getDefault(), "Столик No %d", no);
+        return String.format(Locale.getDefault(), "Столик No %d, зарезервирован - %b", no, reserved);
     }
 
     public int getNo() {
@@ -20,6 +20,17 @@ public class Table {
 
     private int no;
     private final Collection<Reservation> reservations = new ArrayList<>();
+
+    private boolean reserved;
+
+    public boolean isReserved() {
+        return reserved;
+    }
+
+    public void setReserved(boolean reserved) {
+        this.reserved = reserved;
+    }
+
     private static int counter;
 
     {

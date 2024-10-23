@@ -18,7 +18,7 @@ public class Main {
 
         view.reservationTable(new Date(), 3, "Сергей");
         view.reservationTable(new Date(), 10, "Сергей");
-
-//        view.changeReservationTable(1001, new Date(), 5, "Сергей");
+        view.changeReservationTable(1001, new Date(), 3, "Сергей");
+        presenter.updateUIShowTables();
     }
 }

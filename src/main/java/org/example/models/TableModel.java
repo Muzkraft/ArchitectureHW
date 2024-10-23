@@ -5,6 +5,7 @@ import org.example.presenters.Model;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Optional;
 
 public class TableModel implements Model {
 
@@ -41,13 +42,23 @@ public class TableModel implements Model {
             if(table.getNo() == tableNo){
                 Reservation reservation = new Reservation(reservationDate, name, table);
                 table.getReservations().add(reservation);
+                table.setReserved(true);
                 return reservation.getId();
             }
         }
         throw new RuntimeException("Ошибка бронирования столика. Повторите попытку позже.");
     }
 
-    public int changeReservationTable(int oldReservation, Date reservationDate, int tableNo, String name){
-        return -1;
+    public int changeReservationTable(int oldReservation, Date reservationDate, int tableNo, String name) {
+        for (Table table: tables){
+            for (Reservation reservation: table.getReservations() ){
+                if (reservation.getId() == oldReservation) {
+                    return reservationTable(reservationDate, tableNo, name);
+                }
+                System.out.println("Такой брони не существует");
+            }
+
+        }
+        throw new RuntimeException("Такого столика не существует, выберите другой");
     }
 }

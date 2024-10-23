@@ -40,6 +40,7 @@ public class BookingView implements View {
     public void reservationTable(Date orderDate, int tableNo, String name){
         if(observer != null){
             observer.onReservationTable(orderDate, tableNo, name);
+            observer.reservationStatus(tableNo);
         }
     }
 
@@ -51,6 +52,9 @@ public class BookingView implements View {
      * @param name
      */
     public void changeReservationTable(int oldReservation, Date reservationDate, int tableNo, String name){
-
+        if (observer != null){
+            observer.onChangeReservationTable(oldReservation, reservationDate, tableNo, name);
+            observer.reservationStatus(tableNo);
+        }
     }
 }

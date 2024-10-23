@@ -23,4 +23,8 @@ public class Reservation {
     public int getId() {
         return id;
     }
+
+    public Table getTable() {
+        return table;
+    }
 }
