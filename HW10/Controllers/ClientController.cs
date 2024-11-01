@@ -2,6 +2,7 @@
 using HW10.Models.Requests;
 using HW10.Services;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Reflection.Metadata;
 
 namespace HW10.Controllers
@@ -17,7 +18,8 @@ namespace HW10.Controllers
         }
 
         [HttpPost("create")]
-        public IActionResult Create([FromBody] CreateClientRequest createRequest)
+        [SwaggerOperation(OperationId="ClientCreate")]
+        public ActionResult<int> Create([FromBody] CreateClientRequest createRequest)
         {
             int res = _clientRepository.Create(new Client
             {
@@ -31,7 +33,8 @@ namespace HW10.Controllers
         }
 
         [HttpPut("update")]
-        public IActionResult Update([FromBody] UpdateClientRequest updateRequest)
+        [SwaggerOperation(OperationId = "ClientUpdate")]
+        public ActionResult<int> Update([FromBody] UpdateClientRequest updateRequest)
         {
             int res = _clientRepository.Update(new Client
             {
@@ -46,20 +49,23 @@ namespace HW10.Controllers
         }
 
         [HttpDelete("delete")]
-        public IActionResult Delete([FromQuery] int ClientId)
+        [SwaggerOperation(OperationId = "ClientDelete")]
+        public ActionResult<int> Delete([FromQuery] int ClientId)
         {
             int res = _clientRepository.Delete(ClientId);
             return Ok(res);
         }
 
         [HttpGet("get-all")]
-        public IActionResult GetAll()
+        [SwaggerOperation(OperationId = "ClientGetAll")]
+        public ActionResult<List<Client>> GetAll()
         {
             return Ok(_clientRepository.GetAll());
         }
 
         [HttpGet("get/{clientId}")]
-        public IActionResult GetById([FromRoute] int clientId)
+        [SwaggerOperation(OperationId = "ClientGetById")]
+        public ActionResult<Client> GetById([FromRoute] int clientId)
         {
             return Ok(_clientRepository.GetById(clientId));
         }
