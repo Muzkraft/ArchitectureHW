@@ -1,4 +1,6 @@
-using HW10ServiceNamespace;
+
+using PetClinicNamespace;
+
 namespace HW10Desktop
     
 
@@ -10,11 +12,11 @@ namespace HW10Desktop
             InitializeComponent();
         }
 
-        private void Create_Click(object sender, EventArgs e)
+        private void Update_Click(object sender, EventArgs e)
         {
-            HW10SwaggerClient swaggerClient = new HW10SwaggerClient("http://localhost:5174", new HttpClient());
+            ClinicClient swaggerClient = new ClinicClient("http://localhost:5174", new HttpClient());
 
-            ICollection<Client> clients =  swaggerClient.ClientGetAllAsync().Result;
+            ICollection<Client> clients = swaggerClient.ClientGetAllAsync().Result;
 
             ClientListView.Items.Clear();
             foreach(Client client in clients)
@@ -51,11 +53,35 @@ namespace HW10Desktop
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Create_Click(object sender, EventArgs e)
         {
-            HW10SwaggerClient swaggerClient = new HW10SwaggerClient("http://localhost:5174", new HttpClient());
+            ClinicClient swaggerClient = new ClinicClient("http://localhost:5174", new HttpClient());
 
-            swaggerClient.ClientCreateAsync();
+            
         }
+        /*
+        private void UpdatePet_Click(object sender, EventArgs e)
+        {
+            ClinicClient swaggerClient = new ClinicClient("http://localhost:5174", new HttpClient());
+
+            var pets = swaggerClient.GetAllPetsAsync().Result;
+
+            PetListView.Items.Clear();
+            foreach (var pet in pets)
+            {
+                ListViewItem item = new ListViewItem();
+                item.Text = pet.PetId.ToString();
+                item.SubItems.Add(new ListViewItem.ListViewSubItem()
+                {
+                    Text = pet.Name
+                });
+                item.SubItems.Add(new ListViewItem.ListViewSubItem()
+                {
+                    Text = pet.Birthday.ToString()
+                });
+                PetListView.Items.Add(item);
+            }
+        }
+        */
     }
 }

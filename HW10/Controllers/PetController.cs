@@ -3,6 +3,7 @@ using HW10.Models;
 using HW10.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace HW10.Controllers
 {
@@ -17,6 +18,7 @@ namespace HW10.Controllers
         }
 
         [HttpPost("create")]
+        [SwaggerOperation(OperationId = "PetCreate")]
         public IActionResult Create([FromBody] CreatePetRequest createRequest)
         {
             int res = _petRepository.Create(new Pet
@@ -29,6 +31,7 @@ namespace HW10.Controllers
         }
 
         [HttpPut("update")]
+        [SwaggerOperation(OperationId = "PetUpdate")]
         public IActionResult Update([FromBody] UpdatePetRequest updateRequest)
         {
             int res = _petRepository.Update(new Pet
@@ -42,6 +45,7 @@ namespace HW10.Controllers
         }
 
         [HttpDelete("delete")]
+        [SwaggerOperation(OperationId = "PetDelete")]
         public IActionResult Delete([FromQuery] int PetId)
         {
             int res = _petRepository.Delete(PetId);
@@ -49,12 +53,14 @@ namespace HW10.Controllers
         }
 
         [HttpGet("get-all")]
+        [SwaggerOperation(OperationId = "GetAllPets")]
         public IActionResult GetAll()
         {
             return Ok(_petRepository.GetAll());
         }
 
         [HttpGet("get/{petId}")]
+        [SwaggerOperation(OperationId = "GetByPetId")]
         public IActionResult GetById([FromRoute] int petId)
         {
             return Ok(_petRepository.GetById(petId));

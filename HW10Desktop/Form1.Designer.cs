@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Create = new System.Windows.Forms.Button();
+            this.clientsUpdate = new System.Windows.Forms.Button();
             this.CreateClientButton = new System.Windows.Forms.Button();
             this.ClientListView = new System.Windows.Forms.ListView();
             this.ID = new System.Windows.Forms.ColumnHeader();
@@ -37,27 +37,32 @@
             this.Patrynomic = new System.Windows.Forms.ColumnHeader();
             this.columnHeaderBirthday = new System.Windows.Forms.ColumnHeader();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.PetListView = new System.Windows.Forms.ListView();
+            this.columnHeader2PetId = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2PetName = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2Petbiethday = new System.Windows.Forms.ColumnHeader();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeaderId = new System.Windows.Forms.ColumnHeader();
             this.columnHeaderClientId = new System.Windows.Forms.ColumnHeader();
             this.columnHeaderName = new System.Windows.Forms.ColumnHeader();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.petUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // Create
+            // clientsUpdate
             // 
-            this.Create.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Create.Location = new System.Drawing.Point(692, 388);
-            this.Create.Name = "Create";
-            this.Create.Size = new System.Drawing.Size(96, 50);
-            this.Create.TabIndex = 0;
-            this.Create.Text = "Update";
-            this.Create.UseVisualStyleBackColor = false;
-            this.Create.Click += new System.EventHandler(this.Create_Click);
+            this.clientsUpdate.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.clientsUpdate.Location = new System.Drawing.Point(692, 415);
+            this.clientsUpdate.Name = "clientsUpdate";
+            this.clientsUpdate.Size = new System.Drawing.Size(96, 23);
+            this.clientsUpdate.TabIndex = 0;
+            this.clientsUpdate.Text = "update clients";
+            this.clientsUpdate.UseVisualStyleBackColor = false;
+            this.clientsUpdate.Click += new System.EventHandler(this.Update_Click);
             // 
             // CreateClientButton
             // 
@@ -126,6 +131,7 @@
             // 
             this.splitContainer1.Panel1.AccessibleName = "Pets";
             this.splitContainer1.Panel1.AccessibleRole = System.Windows.Forms.AccessibleRole.Separator;
+            this.splitContainer1.Panel1.Controls.Add(this.PetListView);
             this.splitContainer1.Panel1.Controls.Add(this.listView1);
             this.splitContainer1.Panel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
@@ -136,6 +142,30 @@
             this.splitContainer1.Size = new System.Drawing.Size(768, 370);
             this.splitContainer1.SplitterDistance = 303;
             this.splitContainer1.TabIndex = 3;
+            // 
+            // PetListView
+            // 
+            this.PetListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader2PetId,
+            this.columnHeader2PetName,
+            this.columnHeader2Petbiethday});
+            this.PetListView.Location = new System.Drawing.Point(0, 0);
+            this.PetListView.Name = "PetListView";
+            this.PetListView.Size = new System.Drawing.Size(304, 370);
+            this.PetListView.TabIndex = 1;
+            this.PetListView.UseCompatibleStateImageBehavior = false;
+            // 
+            // columnHeader2PetId
+            // 
+            this.columnHeader2PetId.Text = "Pet Id";
+            // 
+            // columnHeader2PetName
+            // 
+            this.columnHeader2PetName.Text = "Pet name";
+            // 
+            // columnHeader2Petbiethday
+            // 
+            this.columnHeader2Petbiethday.Text = "Pet birthday";
             // 
             // listView1
             // 
@@ -167,14 +197,25 @@
             // 
             this.columnHeader1.Text = "Birthday";
             // 
+            // petUpdate
+            // 
+            this.petUpdate.Location = new System.Drawing.Point(692, 386);
+            this.petUpdate.Name = "petUpdate";
+            this.petUpdate.Size = new System.Drawing.Size(96, 23);
+            this.petUpdate.TabIndex = 4;
+            this.petUpdate.Text = "update pets";
+            this.petUpdate.UseVisualStyleBackColor = true;
+            this.petUpdate.Click += new System.EventHandler(this.Update_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.petUpdate);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.CreateClientButton);
-            this.Controls.Add(this.Create);
+            this.Controls.Add(this.clientsUpdate);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pet Clinic";
@@ -188,7 +229,7 @@
 
         #endregion
 
-        private Button Create;
+        private Button clientsUpdate;
         private Button CreateClientButton;
         private ListView ClientListView;
         private ColumnHeader ID;
@@ -202,5 +243,10 @@
         private ColumnHeader columnHeaderClientId;
         private ColumnHeader columnHeaderName;
         private ColumnHeader columnHeader1;
+        private Button petUpdate;
+        private ListView PetListView;
+        private ColumnHeader columnHeader2PetId;
+        private ColumnHeader columnHeader2PetName;
+        private ColumnHeader columnHeader2Petbiethday;
     }
 }

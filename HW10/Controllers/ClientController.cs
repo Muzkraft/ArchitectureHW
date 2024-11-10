@@ -33,7 +33,7 @@ namespace HW10.Controllers
         }
 
         [HttpPut("update")]
-        [SwaggerOperation(OperationId = "ClientUpdate")]
+         
         public ActionResult<int> Update([FromBody] UpdateClientRequest updateRequest)
         {
             int res = _clientRepository.Update(new Client

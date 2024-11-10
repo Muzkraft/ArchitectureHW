@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HW10Desktop.Data\HW10Desktop.Data.csproj" />
+    <ProjectReference Include="..\HW10\HW10.csproj" />
   </ItemGroup>
 
   <ItemGroup>

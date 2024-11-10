@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <OpenApiReference Include="OpenAPIs\swagger.json" CodeGenerator="NSwagCSharp" Namespace="HW10ServiceNamespace" ClassName="HW10SwaggerClient">
+    <OpenApiReference Include="OpenAPIs\swagger1.json" CodeGenerator="NSwagCSharp" Namespace="PetClinicNamespace" ClassName="ClinicClient">
       <SourceUri>http://localhost:5174/swagger/v1/swagger.json</SourceUri>
     </OpenApiReference>
   </ItemGroup>
@@ -24,6 +24,10 @@
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.9.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="OpenAPIs\swagger.json" ClassName="HW10SwaggerClient" />
   </ItemGroup>
 
 </Project>
